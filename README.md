@@ -5,6 +5,8 @@
 ## Project Overview
 This project was developed as part of the IntelliHack 2025 hackathon. It implements an AI/ML system that detects anomalous login patterns in cloud environments to prevent account takeovers. The system analyzes various factors including geo-location, device fingerprinting, login time, and data transfer patterns to identify potentially malicious login attempts.
 
+This is a prototype/proof of concept developed for educational and demonstration purposes.
+
 ## Key Features
 - **Real-time Anomaly Detection**: Instant analysis of login attempts with probability scoring
 - **Multi-factor Analysis**: Geo-location tracking, device fingerprinting, login timing, and data transfer monitoring
@@ -112,6 +114,24 @@ System health check endpoint.
 - **False Positive Rate**: Near zero
 - **Training Data**: Comprehensive dataset of cloud login patterns
 
+## Key Visualizations
+
+### Confusion Matrix
+![Confusion Matrix](presentation_materials/visualizations/confusion_matrix.png)
+*Model performance evaluation showing true positives, false positives, true negatives, and false negatives*
+
+### Correlation Matrix
+![Correlation Matrix](presentation_materials/visualizations/correlation_matrix.png)
+*Feature relationships showing which factors are most predictive of anomalous behavior*
+
+### Feature Importance
+![Feature Importance](presentation_materials/visualizations/feature_importance.png)
+*Relative importance of each factor in detecting anomalies*
+
+### Data Insights
+![Data Insights](presentation_materials/visualizations/data_insights.png)
+*Key patterns and trends in the login data*
+
 ## Browser Compatibility
 For the best experience, please use a modern browser such as:
 - Chrome 76+
@@ -137,3 +157,5 @@ Note: The mobile menu uses a solid background instead of blur for better compati
 - **Event**: IntelliHack 2025
 - **Category**: AI/ML Security Solutions
 - **Status**: Prototype/Proof of Concept
+
+This project was created for educational and demonstration purposes as part of a hackathon event. It is not intended for production use without significant additional development, testing, and security review.
