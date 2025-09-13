@@ -149,10 +149,6 @@ The application uses modern CSS features including `backdrop-filter` for frosted
 
 Note: The mobile menu uses a solid background instead of blur for better compatibility.
 
-## Team Members
-- **Shyamal** - Lead Developer & ML Engineer
-- **[Add other team members here]**
-
 ## Hackathon Information
 - **Event**: IntelliHack 2025
 - **Category**: AI/ML Security Solutions
