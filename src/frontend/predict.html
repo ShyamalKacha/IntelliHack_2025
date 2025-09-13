@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict | AI Security System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="particles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>SECURITY<span>AI</span></h1>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="nav">
+                    <div class="mobile-menu-close">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/predict" class="active">Predict</a></li>
+                        <li><a href="/api-docs">API Docs</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Prediction Content -->
+        <section class="prediction">
+            <h2 class="section-title">Anomaly Detection</h2>
+            
+            <div class="prediction-form-container">
+                <form id="prediction-form" class="prediction-form">
+                    <div class="form-group">
+                        <label for="user_id">User ID</label>
+                        <input type="text" id="user_id" name="user_id" required placeholder="Enter user ID">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timestamp">Timestamp</label>
+                        <input type="datetime-local" id="timestamp" name="timestamp" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ip_address">IP Address</label>
+                        <input type="text" id="ip_address" name="ip_address" required placeholder="Enter IP address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="geo_location">Geographic Location</label>
+                        <select id="geo_location" name="geo_location" required>
+                            <option value="">Select Location</option>
+                            <option value="United States of America">United States of America</option>
+                            <option value="China">China</option>
+                            <option value="India">India</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Russia">Russia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Syria">Syria</option>
+                            <option value="North Korea">North Korea</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+                            <option value="Antarctica (the territory South of 60 deg S)">Antarctica</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="device_id">Device ID</label>
+                        <input type="text" id="device_id" name="device_id" required placeholder="Enter device ID (e.g., DF_1234)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login_hour">Login Hour (0-23)</label>
+                        <input type="number" id="login_hour" name="login_hour" min="0" max="23" required placeholder="Enter hour">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="is_new_device">New Device?</label>
+                        <select id="is_new_device" name="is_new_device" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bytes_in">Bytes In</label>
+                        <input type="number" id="bytes_in" name="bytes_in" min="0" required placeholder="Enter bytes received">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bytes_out">Bytes Out</label>
+                        <input type="number" id="bytes_out" name="bytes_out" min="0" required placeholder="Enter bytes sent">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="success">Login Success</label>
+                        <select id="success" name="success" required>
+                            <option value="0">Failed</option>
+                            <option value="1">Successful</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Run Detection</button>
+                </form>
+                
+                <div class="prediction-result" id="prediction-result">
+                    <h3>Detection Result</h3>
+                    <div class="result-content">
+                        <p>Enter login data and click "Run Detection" to analyze for anomalies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 IntelliHack AI Security System</p>
+        </footer>
+    </div>
+
+    <script src="predict.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const menuClose = document.querySelector('.mobile-menu-close');
+            const nav = document.querySelector('.nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                if (nav.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            
+            menuClose.addEventListener('click', function() {
+                nav.classList.remove('active');
+                
+                // Reset hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    const spans = menuToggle.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

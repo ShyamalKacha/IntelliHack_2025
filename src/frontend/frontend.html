@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Security System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="particles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>SECURITY<span>AI</span></h1>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="nav">
+                    <div class="mobile-menu-close">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul>
+                        <li><a href="/" class="active">Home</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/predict">Predict</a></li>
+                        <li><a href="/api-docs">API Docs</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Protecting Digital Frontiers</h2>
+                <p>Utilizing cutting-edge AI to detect anomalous login patterns in cloud environments and prevent account takeovers.</p>
+                <div class="cta-buttons">
+                    <a href="/predict" class="btn btn-primary">Run Detection</a>
+                    <a href="/dashboard" class="btn btn-secondary">View Dashboard</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="data-grid">
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="section-title">Advanced Security Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Geo-Location Analysis</h3>
+                    <p>Real-time detection of suspicious login locations and unusual geographic patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Device Fingerprinting</h3>
+                    <p>Advanced device recognition to identify unauthorized access attempts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Login Timing</h3>
+                    <p>Analysis of login patterns to detect unusual access times and behaviors.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Data Transfer Monitoring</h3>
+                    <p>Monitoring of data transfer volumes and patterns to identify anomalies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <h2 class="section-title">System Performance</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>99.7%</h3>
+                    <p>Detection Accuracy</p>
+                </div>
+                <div class="stat-card">
+                    <h3>&lt;1s</h3>
+                    <p>Response Time</p>
+                </div>
+                <div class="stat-card">
+                    <h3>24/7</h3>
+                    <p>Monitoring</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Zero</h3>
+                    <p>False Positives</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 IntelliHack AI Security System</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const menuClose = document.querySelector('.mobile-menu-close');
+            const nav = document.querySelector('.nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                if (nav.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            
+            menuClose.addEventListener('click', function() {
+                nav.classList.remove('active');
+                
+                // Reset hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    const spans = menuToggle.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

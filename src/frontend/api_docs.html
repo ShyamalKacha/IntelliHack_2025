@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation | AI Security System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="particles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>SECURITY<span>AI</span></h1>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="nav">
+                    <div class="mobile-menu-close">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/predict">Predict</a></li>
+                        <li><a href="/api-docs" class="active">API Docs</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- API Documentation Content -->
+        <section class="api-docs">
+            <h2 class="section-title">API Documentation</h2>
+            
+            <div class="docs-content">
+                <div class="endpoint">
+                    <h3>Health Check</h3>
+                    <div class="endpoint-details">
+                        <div class="method">GET</div>
+                        <div class="path">/health</div>
+                    </div>
+                    <p>Check if the API is running and healthy.</p>
+                    <div class="response">
+                        <h4>Response</h4>
+                        <pre><code>{
+  "status": "healthy"
+}</code></pre>
+                    </div>
+                </div>
+                
+                <div class="endpoint">
+                    <h3>Anomaly Prediction</h3>
+                    <div class="endpoint-details">
+                        <div class="method">POST</div>
+                        <div class="path">/predict</div>
+                    </div>
+                    <p>Submit login data to detect anomalies.</p>
+                    <div class="request">
+                        <h4>Request Body</h4>
+                        <pre><code>{
+  "user_id": "string",
+  "timestamp": "string (ISO 8601 format)",
+  "ip_address": "string",
+  "geo_location": "string",
+  "device_id": "string",
+  "login_hour": "integer (0-23)",
+  "is_new_device": "integer (0 or 1)",
+  "bytes_in": "integer",
+  "bytes_out": "integer",
+  "success": "integer (0 or 1)"
+}</code></pre>
+                    </div>
+                    <div class="response">
+                        <h4>Response</h4>
+                        <pre><code>{
+  "anomaly": "integer (0 or 1)",
+  "probability_normal": "float",
+  "probability_anomaly": "float"
+}</code></pre>
+                    </div>
+                </div>
+                
+                <div class="endpoint">
+                    <h3>Prediction History</h3>
+                    <div class="endpoint-details">
+                        <div class="method">GET</div>
+                        <div class="path">/predictions/history</div>
+                    </div>
+                    <p>Retrieve the history of predictions.</p>
+                    <div class="response">
+                        <h4>Response</h4>
+                        <pre><code>[
+  {
+    "timestamp": "string (ISO 8601 format)",
+    "input_data": {
+      "user_id": "string",
+      "timestamp": "string",
+      "ip_address": "string",
+      "geo_location": "string",
+      "device_id": "string",
+      "login_hour": "integer",
+      "is_new_device": "integer",
+      "bytes_in": "integer",
+      "bytes_out": "integer",
+      "success": "integer"
+    },
+    "prediction": {
+      "anomaly": "integer",
+      "probability_normal": "float",
+      "probability_anomaly": "float"
+    }
+  }
+]</code></pre>
+                    </div>
+                </div>
+                
+                <div class="endpoint">
+                    <h3>Prediction Statistics</h3>
+                    <div class="endpoint-details">
+                        <div class="method">GET</div>
+                        <div class="path">/predictions/stats</div>
+                    </div>
+                    <p>Retrieve statistics about predictions.</p>
+                    <div class="response">
+                        <h4>Response</h4>
+                        <pre><code>{
+  "total_predictions": "integer",
+  "anomaly_count": "integer",
+  "normal_count": "integer",
+  "accuracy": "float",
+  "hourly_distribution": {
+    "hour": "count"
+  },
+  "geographic_distribution": {
+    "location": "count"
+  }
+}</code></pre>
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h3>Example Usage</h3>
+                    <p>Using curl to make a prediction:</p>
+                    <pre><code>curl -X POST http://localhost:5000/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "user_id": "U12345",
+    "timestamp": "2025-09-15T14:30:00",
+    "ip_address": "192.168.1.100",
+    "geo_location": "United States of America",
+    "device_id": "DF_1234",
+    "login_hour": 14,
+    "is_new_device": 0,
+    "bytes_in": 102400,
+    "bytes_out": 51200,
+    "success": 1
+  }'</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 IntelliHack AI Security System</p>
+        </footer>
+    </div>
+
+    <script src="api_docs.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const menuClose = document.querySelector('.mobile-menu-close');
+            const nav = document.querySelector('.nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                if (nav.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            
+            menuClose.addEventListener('click', function() {
+                nav.classList.remove('active');
+                
+                // Reset hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    const spans = menuToggle.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

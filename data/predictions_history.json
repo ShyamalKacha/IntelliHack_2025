@@ -1,0 +1,232 @@
+[
+  {
+    "input_data": {
+      "user_id": "SYS1234",
+      "timestamp": "2025-09-10T15:30:00",
+      "ip_address": "192.168.1.100",
+      "geo_location": "United States",
+      "device_id": "DF_5555",
+      "is_new_device": 0,
+      "bytes_in": 150000,
+      "bytes_out": 250000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 0,
+      "probability_normal": 0.95,
+      "probability_anomaly": 0.05
+    },
+    "timestamp": "2025-09-10T15:30:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS5678",
+      "timestamp": "2025-09-10T16:45:00",
+      "ip_address": "203.0.113.45",
+      "geo_location": "Germany",
+      "device_id": "DF_6666",
+      "is_new_device": 0,
+      "bytes_in": 200000,
+      "bytes_out": 180000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 0,
+      "probability_normal": 0.87,
+      "probability_anomaly": 0.13
+    },
+    "timestamp": "2025-09-10T16:45:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS9012",
+      "timestamp": "2025-09-10T17:20:00",
+      "ip_address": "198.51.100.22",
+      "geo_location": "Japan",
+      "device_id": "DF_7777",
+      "is_new_device": 1,
+      "bytes_in": 500000,
+      "bytes_out": 750000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 1,
+      "probability_normal": 0.3,
+      "probability_anomaly": 0.7
+    },
+    "timestamp": "2025-09-10T17:20:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS3456",
+      "timestamp": "2025-09-10T18:05:00",
+      "ip_address": "192.0.2.123",
+      "geo_location": "Brazil",
+      "device_id": "DF_8888",
+      "is_new_device": 0,
+      "bytes_in": 120000,
+      "bytes_out": 95000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 0,
+      "probability_normal": 0.78,
+      "probability_anomaly": 0.22
+    },
+    "timestamp": "2025-09-10T18:05:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS7890",
+      "timestamp": "2025-09-10T19:30:00",
+      "ip_address": "203.0.113.78",
+      "geo_location": "Russia",
+      "device_id": "DF_9999",
+      "is_new_device": 1,
+      "bytes_in": 800000,
+      "bytes_out": 900000,
+      "success": 0
+    },
+    "prediction": {
+      "anomaly": 1,
+      "probability_normal": 0.25,
+      "probability_anomaly": 0.75
+    },
+    "timestamp": "2025-09-10T19:30:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS1111",
+      "timestamp": "2025-09-10T20:15:00",
+      "ip_address": "198.51.100.45",
+      "geo_location": "India",
+      "device_id": "DF_1111",
+      "is_new_device": 0,
+      "bytes_in": 300000,
+      "bytes_out": 250000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 0,
+      "probability_normal": 0.92,
+      "probability_anomaly": 0.08
+    },
+    "timestamp": "2025-09-10T20:15:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS2222",
+      "timestamp": "2025-09-10T21:30:00",
+      "ip_address": "192.0.2.67",
+      "geo_location": "China",
+      "device_id": "DF_2222",
+      "is_new_device": 1,
+      "bytes_in": 1000000,
+      "bytes_out": 1200000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 1,
+      "probability_normal": 0.15,
+      "probability_anomaly": 0.85
+    },
+    "timestamp": "2025-09-10T21:30:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS3333",
+      "timestamp": "2025-09-10T22:45:00",
+      "ip_address": "203.0.113.89",
+      "geo_location": "United Kingdom",
+      "device_id": "DF_3333",
+      "is_new_device": 0,
+      "bytes_in": 180000,
+      "bytes_out": 200000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 0,
+      "probability_normal": 0.88,
+      "probability_anomaly": 0.12
+    },
+    "timestamp": "2025-09-10T22:45:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS4444",
+      "timestamp": "2025-09-10T23:15:00",
+      "ip_address": "198.51.100.34",
+      "geo_location": "Canada",
+      "device_id": "DF_4444",
+      "is_new_device": 0,
+      "bytes_in": 90000,
+      "bytes_out": 75000,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 0,
+      "probability_normal": 0.94,
+      "probability_anomaly": 0.06
+    },
+    "timestamp": "2025-09-10T23:15:00"
+  },
+  {
+    "input_data": {
+      "user_id": "SYS5555",
+      "timestamp": "2025-09-11T00:30:00",
+      "ip_address": "192.0.2.234",
+      "geo_location": "Australia",
+      "device_id": "DF_5555",
+      "is_new_device": 1,
+      "bytes_in": 600000,
+      "bytes_out": 550000,
+      "success": 0
+    },
+    "prediction": {
+      "anomaly": 1,
+      "probability_normal": 0.2,
+      "probability_anomaly": 0.8
+    },
+    "timestamp": "2025-09-11T00:30:00"
+  },
+  {
+    "input_data": {
+      "user_id": "dbdb",
+      "timestamp": "2025-09-12T23:03",
+      "ip_address": "123.43.12.43",
+      "geo_location": "North Korea",
+      "device_id": "gege",
+      "login_hour": 22,
+      "is_new_device": 1,
+      "bytes_in": 22,
+      "bytes_out": 25,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 1,
+      "probability_normal": 0.17,
+      "probability_anomaly": 0.83
+    },
+    "timestamp": "2025-09-12T23:04:05.444206"
+  },
+  {
+    "input_data": {
+      "user_id": "123",
+      "timestamp": "2025-09-13T11:20",
+      "ip_address": "123.43.243.11",
+      "geo_location": "Canada",
+      "device_id": "abcd",
+      "login_hour": 11,
+      "is_new_device": 0,
+      "bytes_in": 4242,
+      "bytes_out": 6442,
+      "success": 1
+    },
+    "prediction": {
+      "anomaly": 0,
+      "probability_normal": 0.55,
+      "probability_anomaly": 0.45
+    },
+    "timestamp": "2025-09-13T11:21:12.525551"
+  }
+]

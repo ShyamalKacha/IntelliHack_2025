@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AI Security System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="particles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>SECURITY<span>AI</span></h1>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="nav">
+                    <div class="mobile-menu-close">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/dashboard" class="active">Dashboard</a></li>
+                        <li><a href="/predict">Predict</a></li>
+                        <li><a href="/api-docs">API Docs</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <section class="dashboard">
+            <h2 class="section-title">Security Dashboard</h2>
+            
+            <!-- Stats Overview -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3 id="total-predictions">0</h3>
+                    <p>Total Predictions</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="anomaly-count">0</h3>
+                    <p>Anomalies Detected</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="accuracy">0%</h3>
+                    <p>System Accuracy</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="response-time">0ms</h3>
+                    <p>Avg Response Time</p>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3>Anomaly Distribution</h3>
+                    <canvas id="anomalyChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Login Activity by Hour</h3>
+                    <canvas id="hourlyChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Geographic Distribution</h3>
+                    <canvas id="geoChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Predictions -->
+            <div class="recent-predictions">
+                <h3>Recent Predictions</h3>
+                <div class="predictions-table">
+                    <div class="table-header">
+                        <div>Timestamp</div>
+                        <div>User ID</div>
+                        <div>Location</div>
+                        <div>Device</div>
+                        <div>Status</div>
+                    </div>
+                    <div class="table-body" id="predictions-body">
+                        <!-- Predictions will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 IntelliHack AI Security System</p>
+        </footer>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const menuClose = document.querySelector('.mobile-menu-close');
+            const nav = document.querySelector('.nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                if (nav.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            
+            menuClose.addEventListener('click', function() {
+                nav.classList.remove('active');
+                
+                // Reset hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    const spans = menuToggle.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
